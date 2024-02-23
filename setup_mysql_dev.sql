@@ -5,6 +5,8 @@
 --   Grants SELECT privilege for hbnb_dev on performance_schema.
 
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
+
+--Create the hbnb_dev user with password and privileges
 CREATE USER
     IF NOT EXISTS 'hbnb_dev'@'localhost'
     IDENTIFIED BY 'hbnb_dev_pwd';
