@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 Start Flask app with root route
