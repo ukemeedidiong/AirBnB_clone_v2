@@ -9,8 +9,10 @@ import os
 app = Flask(__name__)
 
 # Define the directory containing the HTML templates
-template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
+template_dir = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), 'templates'))
 app.template_folder = template_dir
+
 
 # Define routes and functions
 @app.route("/", strict_slashes=False)
@@ -20,12 +22,14 @@ def hello_hbnb():
     """
     return "Hello HBNB!"
 
+
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """
     Returns a string saying HBNB
     """
     return "HBNB"
+
 
 @app.route("/c/<text>", strict_slashes=False)
 def c_with_text(text):
@@ -35,6 +39,7 @@ def c_with_text(text):
     tokens = text.split("_")
     text = "C " + " ".join(tokens)
     return text
+
 
 @app.route("/python", defaults={'text': "is cool"}, strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
@@ -46,6 +51,7 @@ def python_with_text(text):
     text = "Python " + " ".join(tokens)
     return text
 
+
 @app.route("/number/<int:n>", strict_slashes=False)
 def print_int(n):
     """
@@ -54,6 +60,7 @@ def print_int(n):
     if type(n) is int:
         return "{} is a number".format(n)
 
+
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def print_int_template(n):
     """
@@ -61,6 +68,7 @@ def print_int_template(n):
     """
     if type(n) is int:
         return render_template("5-number.html", number=n)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
